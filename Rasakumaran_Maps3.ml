@@ -27,27 +27,35 @@ let draw_edge edge node_list x_scale y_scale min_longitude min_latitude search =
       ((get_latitude end_node -. min_latitude) *. y_scale)
   in
 
+  (* Couleur des routes *)
   if search <> "" && str_contains (get_name edge) search then
-    set_color red
+    set_color (rgb 255 0 150)
   else
     begin
       match get_nature edge with
       | "footway" ->
-          set_color (rgb 34 139 34)
+          set_color (rgb 50 255 120)
+
       | "motorway" ->
-          set_color (rgb 180 40 40)
+          set_color (rgb 255 50 50)
+
       | "primary" ->
           set_color (rgb 255 140 0)
+
       | "secondary" ->
-          set_color (rgb 218 165 32)
+          set_color (rgb 255 220 0)
+
       | "tertiary" ->
-          set_color (rgb 148 103 189)
+          set_color (rgb 190 80 255)
+
       | "residential" ->
-          set_color (rgb 190 190 190)
+          set_color (rgb 220 220 220)
+
       | "service" ->
-          set_color (rgb 140 140 140)
+          set_color (rgb 80 180 255)
+
       | _ ->
-          set_color (rgb 80 130 180)
+          set_color (rgb 100 140 255)
     end;
 
   moveto x_s y_s;
@@ -70,8 +78,14 @@ let draw_edges node_list edge_list x_size y_size search =
 
   List.iter
     (fun edge ->
-      draw_edge edge node_list x_scale y_scale
-        min_longitude min_latitude search)
+      draw_edge
+        edge
+        node_list
+        x_scale
+        y_scale
+        min_longitude
+        min_latitude
+        search)
     edge_list
 
 
@@ -83,9 +97,15 @@ let open_map city node_list edge_list search =
   resize_window x_size y_size;
   set_window_title ("Carte de " ^ city);
 
+  (* Fond noir *)
+  set_color (rgb 5 5 5);
+  fill_rect 0 0 x_size y_size;
+
+  (* Dessin des routes *)
   draw_edges node_list edge_list x_size y_size search;
 
   ignore (wait_next_event [Key_pressed]);
+
   close_graph ()
 
 
