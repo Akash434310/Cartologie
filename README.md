@@ -29,22 +29,6 @@ Cartographie/
 └── README.md
 ```
 
-## Compilation
-
-Le projet utilise `ocamlfind` avec le package `graphics` :
-
-```bash
-make
-```
-
-Cela génère l'exécutable `create_map`.
-
-Pour nettoyer les fichiers compilés :
-
-```bash
-make clean
-```
-
 ## Utilisation
 
 L'exécutable prend en argument le nom d'une ville (ou d'un département) présente dans `city_maps/` ou `department_maps/` :
