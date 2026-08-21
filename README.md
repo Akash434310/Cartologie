@@ -14,7 +14,8 @@ Le but du projet est de charger des données provenant d'OpenStreetMap et de rep
 *Exemple avec la carte du département de l'Essonne.*
 
 
-Structure du projet
+Structure du projet :
+
 Cartographie/
 ├── Node.ml / Node.mli
 ├── Edge.ml / Edge.mli
@@ -28,6 +29,7 @@ Cartographie/
 │   ├── rennes.png
 │   └── essonne.png
 └── Makefile
+
 Node s'occupe des nœuds et de leurs coordonnées.
 Edge s'occupe des routes et des informations qui leur sont associées.
 Maps4.ml est actuellement le programme principal qui permet d'afficher les cartes.
