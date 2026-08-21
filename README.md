@@ -44,4 +44,4 @@ ajouter un zoom ;
 pouvoir se déplacer sur la carte ;
 calculer un itinéraire entre deux points;
 Ajouter une légende pour les couleurs;
-Trouver une rue;
+Trouver une rue précis;
