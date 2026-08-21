@@ -25,9 +25,10 @@ let get_speed_limit edge =
 let get_one_way edge =
   edge.one_way
 
-let read_edge_file city =
+let read_edge_file directory city =
+  let filename = directory ^ "/" ^ city ^ "_edges.txt" in
   try
-    let channel = open_in city in
+    let channel = open_in filename in
     try
       while true do
         let line = input_line channel in
@@ -68,8 +69,8 @@ let print_edge_list el =
 
 
 
-let rec load_edge_list city =
-  let filename = "city_maps/" ^ city ^ "_edges.txt" in
+let rec load_edge_list directory city =
+  let filename = directory ^ "/" ^ city ^ "_edges.txt" in
   try
     let channel = open_in filename in
     let rec aux el =

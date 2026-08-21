@@ -12,7 +12,7 @@ val get_speed_limit : edge -> int
 
 val get_one_way : edge -> bool
 
-val read_edge_file : string -> unit
+val read_edge_file : string -> string -> unit
 
 val edge_of_line : string -> edge
 
@@ -20,7 +20,7 @@ val print_edge : edge -> unit
 
 val print_edge_list : edge list -> unit
 
-val load_edge_list : string -> edge list
+val load_edge_list : string -> string -> edge list
 
 val str_contains : string -> string -> bool
 

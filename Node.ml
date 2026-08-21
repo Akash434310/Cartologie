@@ -18,8 +18,8 @@ let get_latitude node =
 let get_nature node =
   node.nature
 
-let read_node_file city =
-  let filename = "city_maps/" ^ city ^ "_nodes.txt" in
+let read_node_file directory city =
+  let filename = directory ^ "/" ^ city ^ "_nodes.txt" in
   try
     let channel = open_in filename in
     try
@@ -44,8 +44,8 @@ let print_node node =
 let print_node_list nl =
   List.iter (fun node -> print_node node )nl
 
-let rec load_node_list city =
-  let filename = "city_maps/" ^ city ^ "_nodes.txt" in
+let rec load_node_list directory city =
+  let filename = directory ^ "/" ^ city ^ "_nodes.txt" in
   try
     let channel = open_in filename in
     let rec aux nl =
@@ -108,8 +108,8 @@ let get_max_latitude nl =
       in
       aux (get_latitude n) tl
 
-let print_limits city =
-  let nl = load_node_list city in
+let print_limits directory city =
+  let nl = load_node_list directory city in
 
   Printf.printf "Longitude : [%f ; %f]\n"
     (get_min_longitude nl)
